@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أرشيف السينما</title>
+  </head>
+  <body>
+    <div class="atmosphere">
+      <div class="grain"></div>
+      <div class="vignette"></div>
+      <div class="dust"></div>
+      <div class="dust"></div>
+      <div class="dust"></div>
+    </div>
+
+    <header class="fade-up">
+      <div class="brand-mark">
+        <span class="line"></span>
+        <div class="brand">ارشيف السينما المصرية</div>
+        <span class="line rev"></span>
+      </div>
+      <div class="brand-sub">حكايات زمان</div>
+      <audio id="siteSound" loop preload="none">
+        <source
+          src="https://res.cloudinary.com/dbg6mw0g9/video/upload/v1783639978/AudioCutter_%D8%B9%D9%85%D8%B1_%D8%AE%D9%8A%D8%B1%D8%AA___%D8%AE%D9%84%D9%89_%D8%A8%D8%A7%D9%84%D9%83_%D9%85%D9%86_%D8%B9%D9%82%D9%84%D9%83___%D8%A7%D9%84%D8%AD%D8%A7%D9%86_%D8%B3%D8%A7%D8%AD%D8%B1%D8%A9_MP3_160K_aqvlnk.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+      <button
+        class="sound-btn"
+        id="soundToggleBtn"
+        onclick="toggleSiteSound()"
+        aria-label="تشغيل صوت الأرشيف"
+      >
+        <svg
+          class="vinyl-art"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <radialGradient id="vinylBody" cx="50%" cy="40%" r="72%">
+              <stop offset="0%" stop-color="#2c2c2f" />
+              <stop offset="55%" stop-color="#151517" />
+              <stop offset="100%" stop-color="#040405" />
+            </radialGradient>
+            <radialGradient id="vinylLabel" cx="36%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#e4c868" />
+              <stop offset="60%" stop-color="#c9a227" />
+              <stop offset="100%" stop-color="#7a5f16" />
+            </radialGradient>
+            <linearGradient id="vinylShine" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.28)" />
+              <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+            </linearGradient>
+          </defs>
+          <circle
+            cx="50"
+            cy="50"
+            r="48"
+            fill="url(#vinylBody)"
+            stroke="#000"
+            stroke-width="1"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="none"
+            stroke="rgba(255,255,255,0.05)"
+            stroke-width="0.6"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="41"
+            fill="none"
+            stroke="rgba(255,255,255,0.08)"
+            stroke-width="0.6"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="37"
+            fill="none"
+            stroke="rgba(255,255,255,0.05)"
+            stroke-width="0.6"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="33"
+            fill="none"
+            stroke="rgba(255,255,255,0.08)"
+            stroke-width="0.6"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="29"
+            fill="none"
+            stroke="rgba(255,255,255,0.06)"
+            stroke-width="0.6"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="25"
+            fill="none"
+            stroke="rgba(255,255,255,0.09)"
+            stroke-width="0.6"
+          />
+          <path
+            d="M10 26 A48 48 0 0 1 46 4"
+            fill="none"
+            stroke="url(#vinylShine)"
+            stroke-width="7"
+            stroke-linecap="round"
+            opacity="0.6"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="19"
+            fill="url(#vinylLabel)"
+            stroke="rgba(0,0,0,0.5)"
+            stroke-width="1"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="19"
+            fill="none"
+            stroke="rgba(8,8,9,0.35)"
+            stroke-width="0.8"
+            stroke-dasharray="1 2.6"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="3"
+            fill="#040405"
+            stroke="rgba(228,200,104,0.55)"
+            stroke-width="0.6"
+          />
+        </svg>
+        <svg
+          class="sound-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M11 5 6 9H2v6h4l5 4V5z" />
+          <path d="M23 9l-6 6M17 9l6 6" />
+        </svg>
+      </button>
+    </header>
+    <div class="filmstrip"></div>
+
+    <div id="hero"></div>
+    <div
+      class="stats-bar fade-up"
+      id="statsBar"
+      style="animation-delay: 0.08s"
+    ></div>
+
+    <div class="controls fade-up" style="animation-delay: 0.1s">
+      <div class="search-wrap">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="11" cy="11" r="7" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="ابحث عن فيلم، مخرج، أو ممثل..."
+        />
+      </div>
+      <select class="sort-select" id="sortSelect" aria-label="ترتيب حسب">
+        <option value="default">الترتيب الافتراضي</option>
+        <option value="rating-desc">الأعلى تقييمًا</option>
+        <option value="year-desc">الأحدث أولًا</option>
+        <option value="year-asc">الأقدم أولًا</option>
+        <option value="title-asc">أبجديًا</option>
+      </select>
+      <div class="genre-select" id="genreChips"></div>
+    </div>
+
+    <div class="section-label" id="gridLabel">كل الأفلام</div>
+    <div class="grid" id="grid"></div>
+
+    <div class="filmstrip thin"></div>
+    <footer>بيانات تجريبية لأغراض العرض فقط — أرشيف السينما © 2026</footer>
+
+    <div class="overlay" id="overlay">
+      <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+    </div>
+
+    <button
+      class="to-top"
+      id="toTop"
+      onclick="scrollToTop()"
+      aria-label="العودة للأعلى"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M12 19V5" />
+        <path d="M5 12l7-7 7 7" />
+      </svg>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
