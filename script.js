@@ -546,8 +546,8 @@ const MOVIES = [
   },
 ];
 // base paths for local assets (images are in ../img/, videos in ../video/)
-const IMG_BASE = "../img/";
-const VIDEO_BASE = "../video/";
+const IMG_BASE = "/img/";
+const VIDEO_BASE = "/video/";
 function assetPath(filename, base) {
   if (!filename) return "";
   return encodeURI(base + filename);
